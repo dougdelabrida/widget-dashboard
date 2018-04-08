@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -29,7 +29,7 @@ const StyledSelectOption = styled.button`
   }
 
   &:hover {
-    background: rgba(0, 0, 0, .25);
+    background: rgba(5, 33, 37, .9);
   }
 
   &:last-child {
@@ -64,13 +64,12 @@ export const SelectOption = (props) => (
         onClick={() => context.onSelectOption({value: props.value, text: props.children})}
       >
         {props.children}
-        {props.selected && context.onDefaultOption({value: props.value, text: props.children})}
       </StyledSelectOption>
     )}
   </SelectContext.Consumer>
 );
 
-export default class SelectField extends Component {
+export default class SelectField extends PureComponent {
   state = {
     open: false,
     selected: {}
@@ -81,8 +80,7 @@ export default class SelectField extends Component {
   }
 
   contextValue = {
-    onSelectOption: (value) => this.handleSelectOption(value),
-    onDefaultOption: (value) => this.handleSelectOption(value)
+    onSelectOption: (value) => this.handleSelectOption(value)
   }
 
   handleSelectOption (option) {
@@ -97,6 +95,21 @@ export default class SelectField extends Component {
       this.setState({open: false})
       document.onclick = null;
     }
+  }
+
+  componentDidMount () {
+    if (!this.props.children) return;
+    
+    const selectedOption = this.props.children.find(({props}) => props.selected);
+
+    const selected = {
+      text: selectedOption.props.children,
+      value: selectedOption.props.value
+    };
+
+    this.setState({
+      selected
+    });
   }
 
   render() {
