@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WidgetsWrapper from '../components/WidgetsWrapper';
+import Button from '../../components/Button';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<WidgetsWrapper></WidgetsWrapper>, div);
+  ReactDOM.render(<Button>This is a button =]</Button>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
