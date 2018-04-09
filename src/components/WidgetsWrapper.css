@@ -56,5 +56,7 @@
 .react-grid-item:not(.react-grid-placeholder) {
   background: #fff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.31);
+  overflow: hidden;
+  padding: 8px;
   /* transition: all 100ms cubic-bezier(0.215, 0.610, 0.355, 1); */
 }

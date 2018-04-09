@@ -9,9 +9,9 @@ class WidgetsWrapper extends React.PureComponent {
   static defaultProps = {
     className: "layout",
     items: 6,
-    rowHeight: 30,
+    rowHeight: 16,
     onLayoutChange: function() {},
-    cols: 6
+    cols: 12
   };
 
   onLayoutChange(layout) {
