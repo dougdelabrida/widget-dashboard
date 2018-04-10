@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 
+Chart.defaults.global.defaultFontColor = "#000";
+
 export default class HorizontalBarChart extends Component {
   constructor(props) {
     super(props);
