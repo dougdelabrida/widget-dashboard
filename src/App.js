@@ -5,7 +5,7 @@ import Button from './components/Button';
 import theme from './theme';
 import WidgetsWrapper from './components/WidgetsWrapper';
 import ActionsWrapper from './components/ActionsWrapper';
-import { widgetList, getWidget, addWidget } from './App.Helper';
+import { widgetList, getWidget, addWidget, defaultLayout, defaultWidgets } from './App.Helper';
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
@@ -25,8 +25,8 @@ injectGlobal`
 
 class App extends PureComponent {
   state = {
-    layout: [],
-    widgets: [],
+    layout: defaultLayout,
+    widgets: defaultWidgets,
     selectedWidgetValue: ''
   }
 
@@ -45,7 +45,6 @@ class App extends PureComponent {
   }
 
   handleLayoutChange (layout) {
-    console.log(layout)
     this.setState({
       layout
     });

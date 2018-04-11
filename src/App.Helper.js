@@ -19,6 +19,43 @@ const itemLayout = {
   y: undefined,
 };
 
+export const defaultLayout = [
+  {"w":7,"h":21,"x":0,"y":0,"i":"0","moved":false,"static":false},
+  {"w":5,"h":7,"x":7,"y":14,"i":"1","minH":7,"maxH":7,"moved":false,"static":false},
+  {"w":5,"h":14,"x":7,"y":0,"i":"2","minW":4,"minH":13,"moved":false,"static":false}
+];
+
+export const defaultWidgets = [
+  {
+    "component": HorizontalBarChart,
+    "type":"horizontalBarChart",
+    "text":"Horizontal Bar",
+    "w":4,
+    "h":9,
+    "indexes":["0"]
+  },
+  {
+    "component": PolarAreaChart,
+    "type":"polarAreaChart",
+    "text":"Polar Area Chart",
+    "w":4,
+    "h":13,
+    "minW":4,
+    "minH":13,
+    "indexes":["2"]
+  },
+  {
+    "component": BarChart,
+    "type":"barChart",
+    "text":"Bar Chart",
+    "w":4,
+    "h":7,
+    "maxH":7,
+    "minH":7,
+    "indexes":["1"]
+  }
+];
+
 export const widgetList = [
   {
     type: 'horizontalBarChart',
@@ -49,6 +86,7 @@ export const widgetList = [
 
 export const getWidget = (i, widgets) => {
   const widget = widgets.find(widget => widget.indexes.includes(i));
+  console.log(widget)
   if (!widget) return <span>Not found</span>;
   return <widget.component key={i} />;
 }
