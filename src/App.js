@@ -5,7 +5,13 @@ import Button from './components/Button';
 import theme from './theme';
 import WidgetsWrapper from './components/WidgetsWrapper';
 import ActionsWrapper from './components/ActionsWrapper';
-import { widgetList, getWidget, addWidget, defaultLayout, defaultWidgets } from './App.Helper';
+import {
+  widgetList,
+  getWidget,
+  addWidget,
+  defaultLayout,
+  defaultWidgets
+} from './App.Helper';
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
@@ -39,9 +45,9 @@ class App extends PureComponent {
   addWidget (type) {
     if (!this.state.selectedWidgetValue) return;
   
-    const newState = addWidget(this.state.layout, this.state.widgets, type);
+    const nextState = addWidget(this.state.layout, this.state.widgets, type);
 
-    this.setState(newState);
+    this.setState(nextState);
   }
 
   handleLayoutChange (layout) {

@@ -2,6 +2,7 @@ import React from 'react';
 import HorizontalBarChart from './components/widgets/HorizontalBarChart';
 import BarChart from './components/widgets/BarChart';
 import PolarAreaChart from './components/widgets/PolarAreaChart';
+import LineChart from './components/widgets/LineChart';
 
 const itemLayout = {
   h: undefined,
@@ -48,10 +49,8 @@ export const defaultWidgets = [
     "component": BarChart,
     "type":"barChart",
     "text":"Bar Chart",
-    "w":4,
+    "w":5,
     "h":7,
-    "maxH":7,
-    "minH":7,
     "indexes":["1"]
   }
 ];
@@ -81,12 +80,20 @@ export const widgetList = [
     "h": 13,
     "minW": 4,
     "minH": 13
+  },
+  {
+    type: 'lineChart',
+    text: 'Line Chart',
+    component: LineChart,
+    "w": 4,
+    "h": 13,
+    "minW": 4,
+    "minH": 13
   }
 ];
 
 export const getWidget = (i, widgets) => {
   const widget = widgets.find(widget => widget.indexes.includes(i));
-  console.log(widget)
   if (!widget) return <span>Not found</span>;
   return <widget.component key={i} />;
 }

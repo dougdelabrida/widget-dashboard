@@ -1,4 +1,11 @@
-import { widgetList, getWidget, addWidget } from '../App.Helper';
+import {
+  widgetList,
+  getWidget,
+  addWidget,
+  removeWidget,
+  defaultLayout,
+  defaultWidgets
+} from '../App.Helper';
 
 describe('App.Helper', function () {
   describe('addWidget(layout, widgets, type)', function () {
